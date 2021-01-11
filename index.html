@@ -1,0 +1,386 @@
+<!--
+
+●  Created by {D!VY∆NSHU 😸} 
+
+●  Made With Love  ❤️ for you
+
+●  ❌ Don't Copy My Piece of heart(code) 🙅😡
+
+●  🎧 Enjoy and Feel the music my Friend. 🤗😍
+   
+●  Note :
+   • You Can Swipe Up on small player bar to 
+     open fullscreen player.
+   • Loading Time of audio file depends upon
+     your network status.
+   • Previous_audio and Next_audio btn , is not 
+     working because i remove its function. 😔
+   • If You like it pls , give an upvote to this 
+     code , also share tho 😄
+   • Also I dont Owns the real Copyrights of the
+     Images and audio files. all media has third 
+     party Cdn source .
+     
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Music App | UI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+    
+      <!-- Custom Styles -->
+      <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+	
+	
+	  <script src="main.js"></script>
+	
+	
+    <div class="main-wrap">
+        <!-- home screen ui -->
+        <div class="home-tab">
+            <!-- menu screen ui -->
+            <div class="menu-tab" id="menu">
+                <div class="menu-for-sm">
+                    <div class="menu-c" onclick="close_menu()">
+                        <span class="material-icons">
+                            navigate_before
+                        </span>
+                    </div>
+                    <div class="mmmenu-name">
+                        Settings
+                    </div>
+                </div>
+                <div class="menu-for-lg">
+                    <div class="mmenu-name">
+                        Music <b>App</b>
+                    </div>
+                </div>
+                <div class="menu-item-box">
+                    <div class="menu-c">
+                        <span class="material-icons">
+                            home
+                        </span>
+                    </div>
+                    <div class="menu-item">
+                        HOME
+                    </div>
+                </div>
+                <div class="menu-item-box">
+                    <div class="menu-c">
+                        <span class="material-icons">
+                            album
+                        </span>
+                    </div>
+                    <div class="menu-item">
+                        ALBUMS
+                    </div>
+                </div>
+                <div class="menu-item-box">
+                    <div class="menu-c">
+                        <span class="material-icons">
+                            favorite
+                        </span>
+                    </div>
+                    <div class="menu-item">
+                        FAVORITES
+                    </div>
+                </div>
+                <div class="menu-item-box-toggler">
+                    <div class="menu-c">
+                        <span class="material-icons">
+                            color_lens
+                        </span>
+                    </div>
+                    <div class="menu-item" onclick="open_theme()">
+                        THEMES
+                    </div>
+                    <div class="theme-bar" id="theme">
+                        <div class="theme-item" onclick="change_theme(0)"></div>
+                        <div class="theme-item" onclick="change_theme(1)"></div>
+                        <div class="theme-item" onclick="change_theme(2)"></div>
+                        <div class="theme-item" onclick="change_theme(3)"></div>
+                        <div class="theme-item" onclick="change_theme(4)"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- content screen ui -->
+            <div class="content-tab">
+                <!-- menu bar for small device -->
+                <div class="menu-bar">
+                    <div class="menu-toggle" onclick="open_menu()">
+                        <span class="material-icons">
+                            menu
+                        </span>
+                    </div>
+                    <div class="menu-name">
+                        Music <b>App</b>
+                    </div>
+                    <div class="menu-log" id="logger">
+                        <div class="sign-box">
+                            <button class="log-btn" onclick="log_me('true')">
+                            log in
+                            </button>
+                        </div>
+                        <div class="sign-box">
+                            <img class="log-img" id="log_img">
+                        </div>
+                    </div>
+                </div>
+                <!-- menu bar for large device -->
+                <div class="menu-bar-lg">
+                    <div class="lg-cont-max">
+                        <div class="search-cont">
+                            <input type="text" id="search-txt" placeholder="search songs">
+                            <button id="src-btn" onclick="search_song()"><span class="material-icons">
+                                search
+                            </span></button>
+                        </div>
+                    </div>
+                    <div class="lg-cont-min" id="logger-2">
+                        <div class="lg-log">
+                            <button class="log-btn" onclick="log_me('true')">
+                                    log in
+                            </button>
+                        </div>
+                        <div class="lg-log">
+                            <img class="log-img" id="log_img_1">
+                        </div>
+                    </div>
+                </div>
+                <!-- banner music card -->
+                <div class="music-banner">
+                    <div class="music-lg-cont" id="my_ban">
+                        <!-- javascript injection -->
+                    </div>
+                </div>
+                <!-- english music -->
+                <div class="music-sm-cont">
+                    <div class="music-meta">
+                        Top English Songs
+                    </div>
+                    <div class="music-wrap">
+                        <div class="m-wrap" id="eng-mus">
+                            <!-- javascript injection -->
+                        </div>
+                    </div>
+                </div>
+                <!-- k-pop music -->
+                <div class="music-sm-cont">
+                    <div class="music-meta">
+                        Top K-pop Songs
+                    </div>
+                    <div class="music-wrap">
+                        <div class="m-wrap" id="k-pop-mus">
+                            <!-- javascript injection -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Artist panel -->
+                <div class="music-sm-cont-a">
+                    <div class="music-meta">
+                        Artist
+                    </div>
+                    <div class="music-wrap-a">
+                        <div class="m-wrap" id="art-mus">
+                            <!-- javascript injection -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Spanish music -->
+                <div class="music-sm-cont">
+                    <div class="music-meta">
+                        Top Spanish Songs
+                    </div>
+                    <div class="music-wrap">
+                        <div class="m-wrap" id="spain-mus">
+                            <!-- javascript injection-->
+                        </div>
+                    </div>
+                </div>
+                <!-- anime songs -->
+                <div class="music-sm-cont">
+                    <div class="music-meta">
+                        Anime Songs
+                    </div>
+                    <div class="music-wrap">
+                        <div class="m-wrap" id="anime-mus">
+                            <!-- javascript injection -->
+                        </div>
+                    </div>
+                </div>
+                <!-- white space -->
+                <div class="white-space" id="white"></div>
+            </div>
+        </div>
+        <!-- preview tab -->
+        <div class="artist-preview" id="artist_pre">
+            <div class="art-big-box">
+                <div class="float_menu" onclick="art_toggle()">
+                    <span class="material-icons">
+                        keyboard_arrow_down
+                    </span>
+                </div>
+                <div class="div_big_img">
+                    <img id="big_img">
+                </div>
+                <div class="div_data_box">
+                    <p id="art_title">
+                        Artist_name
+                    </p>
+                    <p id="art_cat">
+                        Artist_language
+                    </p>
+                    <div class="art-social">
+                        <div class="div-so-items">
+                            <span class="material-icons">visibility</span> Views 
+                        </div>
+                        <div class="div-so-items">
+                            <span class="material-icons">albums</span> Albums
+                        </div>
+                        <div class="div-so-items">
+                            <span class="material-icons">link</span> Share
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="art-bigger-box">
+                <ul id="data_list"></ul>
+            </div>
+        </div>
+        <!-- audio player start here -->
+        <div id="small_player" class="sm-audio-box">
+            <div class="player-wrap">
+                <div class="player-data-box">
+                    <div class="p-img-cont">
+                        <img id="sm_player_img">
+                    </div>
+                    <div class="p-real-data">
+                        <p id="sm_player_name">
+                            song_title
+                        </p>
+                        <p id="sm_player_art">
+                            artist
+                        </p>
+                    </div>
+                </div>
+                <div class="player-control-box">
+                    <div class="hid">
+                        <span class="material-icons">
+                            skip_previous
+                        </span>
+                    </div>
+                    <div class="con">
+                        <span id="my_play" class="material-icons" onclick="toggle_con()">
+                            pause
+                        </span>
+                    </div>
+                    <div class="hid">
+                        <span class="material-icons">
+                            skip_next
+                        </span>
+                    </div>
+                </div>
+                <div class="player-large-control-box">
+                    <div class="con">
+                        <span class="material-icons">
+                            repeat
+                        </span>
+                    </div>
+                    <div class="con">
+                        <span class="material-icons" onclick="volume(this)">
+                            volume_up
+                        </span>
+                    </div>
+                    <div class="con">
+                        <span class="material-icons">
+                            more_vert
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- big player control -->
+        <div id="large_player" class="lg-audio-box">
+            <div class="lg-player-wrap">
+                <div class="lg-player-img-cont">
+                    <img id="lg_player_img">
+                </div>
+                <div class="lg-player-data">
+                    <p id="lg_player_name">
+                        Music_title
+                    </p>
+                    <p id="lg_player_art">
+                        Music_artist
+                    </p>
+                </div>
+                <div class="lg-player-control">
+                    <div class="div-cont div-center">
+                        <div class="div-cont-items i-hid">
+                            <span class="material-icons">
+                                skip_previous
+                            </span>
+                        </div>
+                        <div class="div-cont-items" onclick="skip('neg')">
+                            <span class="material-icons">
+                                replay_5
+                            </span>
+                        </div>
+                        <div class="div-cont-items s_p">
+                            <span id="my_play_1" class="material-icons" onclick="toggle_con()">
+                                pause
+                            </span>
+                        </div>
+                        <div class="div-cont-items">
+                            <span class="material-icons" onclick="skip('pos')">
+                                forward_5
+                            </span>
+                        </div>
+                        <div class="div-cont-items i-hid">
+                            <span class="material-icons">
+                                skip_next
+                            </span>
+                        </div>
+                    </div>
+                    <div class="div-cont div-space">
+                        <div class="div-cont-items">
+                            <span class="material-icons">
+                                repeat
+                            </span>
+                        </div>
+                        <div class="div-cont-items" onclick="fav('do');">
+                            <span class="material-icons fav" id="heart">
+                                favorite
+                            </span>
+                        </div>
+                        <div class="div-cont-items">
+                            <span class="material-icons">
+                                shuffle
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Loading page -->
+        <div id="load_page" class="load">
+            <div class="load_cont">
+                <div class="load_box">
+                    Music <b>App</b>
+                </div>
+                <div id="load_data">
+                    Loading...
+                </div>
+            </div>
+        </div>
+        <!-- The audio file -->
+        <audio id="my_music" preload="auto" loop="">
+            <source id="my_music_file" src="" type="audio/mpeg"></source>
+        </audio>
+    </div>
+</body>
+</html>
